@@ -77,7 +77,8 @@ export const whatsappAPI = {
   conectar: () => api.post('/whatsapp/conectar'),
   desconectar: () => api.post('/whatsapp/desconectar'),
   enviarTest: (numero, mensaje) => api.post('/whatsapp/test', { numero, mensaje }),
-  enviarNotificaciones: () => api.post('/whatsapp/enviar-notificaciones')
+  enviarNotificaciones: () => api.post('/whatsapp/enviar-notificaciones'),
+  enviarACliente: (clienteId, mensaje) => api.post('/whatsapp/enviar-cliente', { clienteId, mensaje })
 };
 
 // Datos Brutos

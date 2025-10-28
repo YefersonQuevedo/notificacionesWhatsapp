@@ -92,6 +92,50 @@ router.post('/test', verificarEmpresa, verificarRol('admin', 'operador'), async 
   }
 });
 
+// Enviar mensaje personalizado a cliente
+router.post('/enviar-cliente', verificarEmpresa, verificarRol('admin', 'operador'), async (req, res) => {
+  try {
+    const { clienteId, mensaje } = req.body;
+
+    if (!clienteId || !mensaje) {
+      return res.status(400).json({ error: 'Cliente ID y mensaje son requeridos' });
+    }
+
+    // Buscar cliente
+    const { Cliente } = await import('../models/associations.js');
+    const cliente = await Cliente.findOne({
+      where: {
+        id: clienteId,
+        empresa_id: req.usuario.empresa_id
+      }
+    });
+
+    if (!cliente) {
+      return res.status(404).json({ error: 'Cliente no encontrado' });
+    }
+
+    if (!cliente.telefono) {
+      return res.status(400).json({ error: 'El cliente no tiene número de teléfono' });
+    }
+
+    // Enviar mensaje
+    await whatsappService.enviarMensaje(cliente.telefono, mensaje);
+
+    console.log(`✓ Mensaje personalizado enviado a ${cliente.nombre} (${cliente.telefono})`);
+
+    res.json({
+      message: 'Mensaje enviado exitosamente',
+      cliente: {
+        nombre: cliente.nombre,
+        telefono: cliente.telefono
+      }
+    });
+  } catch (error) {
+    console.error('Error enviando mensaje a cliente:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Ejecutar envío manual de notificaciones
 router.post('/enviar-notificaciones', verificarEmpresa, verificarRol('admin', 'operador'), async (req, res) => {
   try {

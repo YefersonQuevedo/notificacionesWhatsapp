@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Plus, Search, Edit2, Trash2, User, Phone, FileText } from 'lucide-react';
+import { Plus, Search, Edit2, Trash2, User, Phone, FileText, MessageCircle } from 'lucide-react';
 import toast from 'react-hot-toast';
-import { clientesAPI } from '../services/api';
+import { clientesAPI, whatsappAPI } from '../services/api';
 import Modal from '../components/Modal';
 import ConfirmDialog from '../components/ConfirmDialog';
 
@@ -14,6 +14,9 @@ export default function Clientes() {
   const [modalOpen, setModalOpen] = useState(false);
   const [editingCliente, setEditingCliente] = useState(null);
   const [deleteDialog, setDeleteDialog] = useState({ open: false, cliente: null });
+  const [mensajeModal, setMensajeModal] = useState({ open: false, cliente: null });
+  const [mensaje, setMensaje] = useState('');
+  const [enviando, setEnviando] = useState(false);
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -98,6 +101,34 @@ export default function Clientes() {
       cargarClientes();
     } catch (error) {
       toast.error('Error eliminando cliente');
+    }
+  };
+
+  const abrirModalMensaje = (cliente) => {
+    if (!cliente.telefono) {
+      toast.error('Este cliente no tiene número de teléfono');
+      return;
+    }
+    setMensajeModal({ open: true, cliente });
+    setMensaje(''); // Limpiar mensaje anterior
+  };
+
+  const enviarMensajePersonalizado = async () => {
+    if (!mensaje.trim()) {
+      toast.error('Escribe un mensaje');
+      return;
+    }
+
+    try {
+      setEnviando(true);
+      await whatsappAPI.enviarACliente(mensajeModal.cliente.id, mensaje);
+      toast.success(`Mensaje enviado a ${mensajeModal.cliente.nombre}`);
+      setMensajeModal({ open: false, cliente: null });
+      setMensaje('');
+    } catch (error) {
+      toast.error(error.response?.data?.error || 'Error enviando mensaje');
+    } finally {
+      setEnviando(false);
     }
   };
 
@@ -191,6 +222,15 @@ export default function Clientes() {
                       </td>
                       <td className="table-cell">
                         <div className="flex space-x-2">
+                          {cliente.telefono && (
+                            <button
+                              onClick={() => abrirModalMensaje(cliente)}
+                              className="text-green-600 hover:text-green-900"
+                              title="Enviar mensaje WhatsApp"
+                            >
+                              <MessageCircle className="h-4 w-4" />
+                            </button>
+                          )}
                           <button
                             onClick={() => abrirModalEditar(cliente)}
                             className="text-blue-600 hover:text-blue-900"
@@ -319,6 +359,60 @@ export default function Clientes() {
             </button>
           </div>
         </form>
+      </Modal>
+
+      {/* Modal Enviar Mensaje */}
+      <Modal
+        isOpen={mensajeModal.open}
+        onClose={() => setMensajeModal({ open: false, cliente: null })}
+        title={`Enviar Mensaje a ${mensajeModal.cliente?.nombre}`}
+        size="md"
+      >
+        <div className="space-y-4">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+            <p className="text-sm text-blue-800">
+              <strong>Cliente:</strong> {mensajeModal.cliente?.nombre}
+            </p>
+            <p className="text-sm text-blue-800">
+              <strong>Teléfono:</strong> {mensajeModal.cliente?.telefono}
+            </p>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Mensaje *
+            </label>
+            <textarea
+              value={mensaje}
+              onChange={(e) => setMensaje(e.target.value)}
+              className="input"
+              rows="6"
+              placeholder="Escribe tu mensaje aquí...&#10;&#10;Ejemplo:&#10;Hola! Le recordamos que su tecnomecánica está próxima a vencer. ¿Necesita agendar una cita?"
+            />
+            <p className="text-xs text-gray-500 mt-1">
+              El mensaje se enviará por WhatsApp
+            </p>
+          </div>
+
+          <div className="flex justify-end space-x-3 pt-4">
+            <button
+              type="button"
+              onClick={() => setMensajeModal({ open: false, cliente: null })}
+              className="btn btn-secondary"
+              disabled={enviando}
+            >
+              Cancelar
+            </button>
+            <button
+              onClick={enviarMensajePersonalizado}
+              className="btn btn-primary flex items-center"
+              disabled={enviando || !mensaje.trim()}
+            >
+              <MessageCircle className="h-4 w-4 mr-2" />
+              {enviando ? 'Enviando...' : 'Enviar Mensaje'}
+            </button>
+          </div>
+        </div>
       </Modal>
 
       {/* Diálogo de confirmación */}
