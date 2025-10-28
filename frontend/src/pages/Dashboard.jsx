@@ -102,12 +102,12 @@ export default function Dashboard() {
       <div className="card">
         <h2 className="text-xl font-bold mb-4 flex items-center">
           <Calendar className="mr-2 h-6 w-6 text-primary-600" />
-          SOAT Próximos a Vencer (30 días)
+          Tecnomecánicas Próximas a Vencer (30 días)
         </h2>
 
         {stats.proximosVencer.length === 0 ? (
           <p className="text-gray-500 text-center py-8">
-            No hay vehículos con SOAT próximo a vencer
+            No hay vehículos con tecnomecánica próxima a vencer
           </p>
         ) : (
           <div className="overflow-x-auto">

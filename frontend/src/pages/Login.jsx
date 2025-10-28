@@ -30,8 +30,8 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-500 to-primary-700 px-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">SOAT Reminders</h1>
-          <p className="text-primary-100">Sistema de Recordatorios Inteligente</p>
+          <h1 className="text-4xl font-bold text-white mb-2">Grupo Cardeñoza</h1>
+          <p className="text-primary-100">Sistema de Recordatorios de Tecnomecánica</p>
         </div>
 
         <div className="bg-white rounded-lg shadow-xl p-8">

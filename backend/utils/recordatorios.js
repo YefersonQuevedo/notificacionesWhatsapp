@@ -114,11 +114,11 @@ export function generarMensajeRecordatorio(notificacion) {
   }
 
   const mensaje = `${urgencia}Hola ${cliente.nombre}!\n\n` +
-    `Le recordamos que el SOAT de su vehículo placa *${vehiculo.placa}* ` +
+    `Le recordamos que la *tecnomecánica* de su vehículo placa *${vehiculo.placa}* ` +
     `vence ${diasAntes === 1 ? 'MAÑANA' : `en ${diasAntes} días`}.\n\n` +
     `📅 Fecha de vencimiento: *${fechaFormateada}*\n\n` +
-    `Por favor renueve su SOAT a tiempo para evitar multas e inconvenientes.\n\n` +
-    `¿Necesita ayuda para renovarlo? Responda este mensaje.`;
+    `Por favor renueve su tecnomecánica a tiempo para evitar multas e inconvenientes.\n\n` +
+    `¿Necesita ayuda? Responda este mensaje o contáctenos.`;
 
   return mensaje;
 }

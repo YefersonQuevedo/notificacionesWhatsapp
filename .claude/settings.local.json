@@ -16,7 +16,8 @@
       "Bash(curl:*)",
       "Bash(npm uninstall:*)",
       "Bash(git commit:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(\"C:\\xampp\\mysql\\bin\\mysql.exe\" -u root -e \"UPDATE soat_reminders.empresas SET nombre = ''Grupo Cardeñoza'' WHERE id = 1; SELECT id, nombre, ruc FROM soat_reminders.empresas WHERE id = 1;\")"
     ],
     "deny": [],
     "ask": []

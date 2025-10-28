@@ -5,7 +5,7 @@ module.exports = {
     // Crear empresa demo
     await queryInterface.bulkInsert('empresas', [{
       id: 1,
-      nombre: 'SOAT Demo Empresa',
+      nombre: 'Grupo Cardeñoza',
       ruc: '900123456-1',
       telefono_whatsapp: '573001234567',
       activo: true,
