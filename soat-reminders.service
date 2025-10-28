@@ -1,0 +1,20 @@
+[Unit]
+Description=SOAT Reminders System
+After=network.target mysql.service
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/soat-reminders
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node backend/server.js
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=soat-reminders
+
+[Install]
+WantedBy=multi-user.target

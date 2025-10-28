@@ -1,0 +1,1252 @@
+1
+00:00:00,000 --> 00:00:02,760
+¿Cuál es mi idea que quiero proponerla mi video?
+
+2
+00:00:02,760 --> 00:00:05,000
+Porque mi video es muy antigüita.
+
+3
+00:00:08,440 --> 00:00:11,280
+Sea, sea, sea, sea, sea.
+
+4
+00:00:12,280 --> 00:00:14,600
+Yo le mando una foto, pero le mando una foto al 11.
+
+5
+00:00:16,760 --> 00:00:19,240
+Es que estoy anotando a que mi tablerito, Marica.
+
+6
+00:00:22,040 --> 00:00:23,560
+Esas son las tres baez.
+
+7
+00:00:24,040 --> 00:00:25,280
+Esté ahí, se lo más le.
+
+8
+00:00:25,280 --> 00:00:27,680
+Entonces, ¿cuál es la idea?
+
+9
+00:00:27,680 --> 00:00:37,300
+yo necesito ver que posible hay empezar a digitalizar todo el tema de las empresas y dejar de su
+
+10
+00:00:37,300 --> 00:00:42,880
+peitar no se hace reportes reportes fictitious si me hago entender
+
+11
+00:00:46,160 --> 00:00:52,080
+entonces por ejemplo con el CD a qué es lo que me causa mi ahorita porque estoy a cargo en un
+
+12
+00:00:52,080 --> 00:00:56,400
+se ahorita son rediciones tecnomecánicas, ¿sí?
+
+13
+00:00:58,400 --> 00:01:02,960
+En el que yo estoy solamente hago moto, pero acá nosotros tenemos el que hace
+
+14
+00:01:02,960 --> 00:01:08,800
+cambio, en el que hace carro tenemos tres, aquí en Girardo hay una infusa y ya, ¿sí?
+
+15
+00:01:14,800 --> 00:01:17,520
+Sí, pero entonces digamos en mi tema que es de motos,
+
+16
+00:01:17,520 --> 00:01:22,760
+tenemos unas tarifas fijas que una técnica de aquí, año,
+
+17
+00:01:22,760 --> 00:01:25,760
+aquí, año, vale tanto y así.
+
+18
+00:01:25,760 --> 00:01:25,960
+¿Sí?
+
+19
+00:01:28,960 --> 00:01:30,840
+Tenemos tarifas fijas.
+
+20
+00:01:31,840 --> 00:01:35,800
+Pero nosotros, por debajo de cuerda, hay personas,
+
+21
+00:01:35,800 --> 00:01:39,440
+las que le damos una comisión porque son personas que nos referen
+
+22
+00:01:39,440 --> 00:01:43,800
+sean con 20 motos, 30 motos, 50 motos a la semana, mal que.
+
+23
+00:01:43,800 --> 00:01:44,840
+¿Y me hago entender?
+
+24
+00:01:44,840 --> 00:01:52,680
+Nosotros asumimos ese gasto, ese costo y le damos
+
+25
+00:01:52,680 --> 00:01:57,720
+su comisión a las personas y hay un tema que son, bueno, eso
+
+26
+00:01:57,720 --> 00:02:01,040
+por en símito, ¿cuál es mi objetivo? Nosotros todo lo
+
+27
+00:02:01,040 --> 00:02:04,560
+manejamos con Excel y hay diferentes, los formatos de esta
+
+28
+00:02:04,560 --> 00:02:07,000
+mierda son diferentes prácticamente en cada empresa
+
+29
+00:02:07,000 --> 00:02:09,920
+en RIC. El cierre acá no es el mismo que manejan en la otra
+
+30
+00:02:09,920 --> 00:02:13,400
+ni en la otra y el de la SEA, de la presentación
+
+31
+00:02:13,400 --> 00:02:17,200
+de la sedea al cerece, obviamente por necesidades,
+
+32
+00:02:17,200 --> 00:02:21,000
+pero también cada sede a pesar de ser de la misma línea,
+
+33
+00:02:21,000 --> 00:02:22,600
+tiene cierre diferentes.
+
+34
+00:02:25,800 --> 00:02:27,400
+Entonces, gracias, invencita.
+
+35
+00:02:27,400 --> 00:02:28,400
+¿Qué detallas?
+
+36
+00:02:28,400 --> 00:02:31,000
+Entonces, mi idea es empezar a hacer una propuesta
+
+37
+00:02:33,000 --> 00:02:35,200
+para estandarizar lo del WhatsApp,
+
+38
+00:02:35,200 --> 00:02:37,000
+pues yo lo necesito eso sí, sí, o sí.
+
+39
+00:02:37,000 --> 00:02:39,000
+Eso yo lo voy a hacer y ya peor utilización.
+
+40
+00:02:39,000 --> 00:02:42,000
+Me dieron, pues, mire a ver y me cuenta como le va.
+
+41
+00:02:42,000 --> 00:02:50,880
+pero entonces mientras tanto vean, yo quisiera saber y pasar una propuesta cómo me cuadra un
+
+42
+00:02:50,880 --> 00:02:56,920
+cedado y le digo la cedecito y el tipo de vaino porque me gustaría hacer esto y implementarlo en
+
+43
+00:02:56,920 --> 00:03:02,160
+este cedé así es posible y que haya como una interfaz por no ver por ced, si me hago entender
+
+44
+00:03:03,160 --> 00:03:10,560
+que el administrador pueda colocar sea seas y coloque cómo va a draicar o cómo va a
+
+45
+00:03:10,560 --> 00:03:13,560
+a Santa Marta o cómo pusa a gasugada. Entonces ahí le salga de una
+
+46
+00:03:13,560 --> 00:03:17,160
+de ese envío indirecto. Hoy ingresaron 80 personas, tatata,
+
+47
+00:03:17,160 --> 00:03:20,560
+miren los costos, miren los que en estos momentos se ganó 20 millones de
+
+48
+00:03:20,560 --> 00:03:24,680
+utilidad. Eso es lo que quiero. Y que todos se manejaron
+
+49
+00:03:24,680 --> 00:03:27,760
+mismo formatos. Pero entonces que la plataforma me lo diga.
+
+50
+00:03:30,000 --> 00:03:37,440
+¿Cierto? Y que yo siquiera exportar ese archivo un Excel y
+
+51
+00:03:37,440 --> 00:03:40,920
+hipotéticamente hablando, lo puede hacer y me salguen un formato parecido.
+
+52
+00:03:45,680 --> 00:03:46,800
+Eso es más que todo.
+
+53
+00:03:51,600 --> 00:03:56,160
+Es que yo pudiera mostrarle la plataforma del hueón ese que vi, pero tenía
+
+54
+00:03:56,160 --> 00:03:59,440
+hasta una gráfica que tuve a mi arde de comida en la venta en el meito, pero bueno,
+
+55
+00:04:01,520 --> 00:04:05,600
+a mi método cada antigüita, a mi método que haces lo que en el excel yo,
+
+56
+00:04:05,600 --> 00:04:12,600
+la vacía de Álvaro, la vacía de Álvaro, la vacía de Álvaro, la vacía de Álvaro,
+
+57
+00:04:12,600 --> 00:04:19,600
+la vacía de Álvaro, la vacía de Álvaro, la vacía de Álvaro, la vacía de Álvaro,
+
+58
+00:04:19,600 --> 00:04:26,600
+la vacía de Álvaro, la vacía de Álvaro, la vacía de Álvaro, la vacía de Álvaro,
+
+59
+00:04:26,600 --> 00:04:32,600
+la vacía de Álvaro, la vacía de Álvaro, la vacía de Álvaro, la vacía de Álvaro,
+
+60
+00:04:32,600 --> 00:04:37,600
+No, los programas yo lo puedo organizar, pero la factura sí toca...
+
+61
+00:04:37,600 --> 00:04:42,600
+Es que lo de la factura es un tema porque usted sabe cómo se trabaja, si me entiende.
+
+62
+00:04:42,600 --> 00:04:50,600
+Entonces, el tema de la factura es que, por lo general, estamos haciendo facturada al final del día.
+
+63
+00:04:50,600 --> 00:04:53,600
+¿Como a entender?
+
+64
+00:04:56,600 --> 00:05:01,600
+El tema es que cuando yo lo ingrese a la planilla con usted, en la página,
+
+65
+00:05:01,600 --> 00:05:04,800
+¿Cómo puedo coordinar el tema del número de captura?
+
+66
+00:05:04,800 --> 00:05:06,600
+O usted existe alguna forma que es...
+
+67
+00:05:06,600 --> 00:05:09,160
+No, pero calabla de perseí muy complicado, ¿no?
+
+68
+00:05:09,160 --> 00:05:12,320
+De donde su ex profesor.
+
+69
+00:05:14,560 --> 00:05:16,320
+Porque ellos son los que han atrasado.
+
+70
+00:05:17,280 --> 00:05:19,840
+Es que es el king, el profesor suyo, ¿vieron?
+
+71
+00:05:21,080 --> 00:05:22,680
+Olo putiene.
+
+72
+00:05:22,680 --> 00:05:25,520
+El king es el que nos hace el tema de perseí.
+
+73
+00:05:26,280 --> 00:05:28,200
+El tiene la empresa que llama perseí
+
+74
+00:05:28,200 --> 00:05:29,800
+que es la facturación electrónica.
+
+75
+00:05:31,600 --> 00:05:33,440
+y no me vine electrónico y entonces
+
+76
+00:05:33,440 --> 00:05:35,000
+a mi herda pero bueno, perseguirla
+
+77
+00:05:35,000 --> 00:05:36,840
+que nos hace toda esa mierda.
+
+78
+00:05:36,840 --> 00:05:38,840
+Entonces,
+
+79
+00:05:38,840 --> 00:05:41,600
+a mi me fue un hijo de amarica,
+
+80
+00:05:41,600 --> 00:05:42,440
+para mí un perro,
+
+81
+00:05:42,440 --> 00:05:44,440
+amarica y aquí.
+
+82
+00:05:44,440 --> 00:05:47,080
+Y ahí lo hice puñar,
+
+83
+00:05:47,080 --> 00:05:48,440
+porque lo tenía jodiendo,
+
+84
+00:05:48,440 --> 00:05:50,080
+amarica que le imagínese que tengo
+
+85
+00:05:50,080 --> 00:05:51,680
+una impresora, pues, y no me imprime.
+
+86
+00:05:51,680 --> 00:05:53,080
+Y todas las secretarias,
+
+87
+00:05:53,080 --> 00:05:54,680
+todo esto de este tiempo han estado
+
+88
+00:05:54,680 --> 00:05:57,440
+imprimiendo en una impresora normal
+
+89
+00:05:57,440 --> 00:06:00,160
+las facturas, entre cada contabilidad.
+
+90
+00:06:00,160 --> 00:06:03,000
+y les escribió desde el mar de
+
+91
+00:06:03,000 --> 00:06:04,900
+el lunes que llegué yo acá y el
+
+92
+00:06:04,900 --> 00:06:06,300
+hijo de puta no me he contestado.
+
+93
+00:06:08,500 --> 00:06:09,700
+Te me atocó ponerme en la serie
+
+94
+00:06:09,700 --> 00:06:10,800
+marica, pues entonces yo me salgo
+
+95
+00:06:10,800 --> 00:06:12,140
+de esa mierda porque que nadie me
+
+96
+00:06:12,140 --> 00:06:12,800
+da su aporte.
+
+97
+00:06:14,840 --> 00:06:16,340
+Aunque en puta me entiendo porque
+
+98
+00:06:16,340 --> 00:06:16,840
+qué.
+
+99
+00:06:20,840 --> 00:06:22,840
+Y yo digo responda me estoy opupado
+
+100
+00:06:22,840 --> 00:06:24,480
+pero un marica ni me dicen a pues
+
+101
+00:06:24,480 --> 00:06:25,480
+es esa la idea, Guéon.
+
+102
+00:06:25,940 --> 00:06:26,940
+La idea es esa.
+
+103
+00:06:26,940 --> 00:06:56,940
+No, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no
+
+104
+00:06:56,940 --> 00:07:04,460
+yo puedo contratar en la nube, dado caso, porque soy un computador,
+
+105
+00:07:04,460 --> 00:07:06,980
+Álvarica se pierde toda la información y valimos verga.
+
+106
+00:07:06,980 --> 00:07:17,180
+Por eso le digo, entonces ese es el tema, pues la idea.
+
+107
+00:07:17,180 --> 00:07:24,180
+Cómo.
+
+108
+00:07:24,180 --> 00:07:31,180
+Cómo.
+
+109
+00:07:31,180 --> 00:07:46,180
+¿Estás bien? ¿La Pai?
+
+110
+00:08:16,180 --> 00:08:28,700
+montar la página? No vas. Depende cuánto me demoré sin dar
+
+111
+00:08:28,700 --> 00:08:36,580
+alguna orrea. Si yo sé, yo sé, tiene la tabuda. Pero la idea
+
+112
+00:08:36,580 --> 00:08:42,740
+mío, pero Marica, el tema cual es el tema es que... ¿Qué pasa?
+
+113
+00:08:42,740 --> 00:08:46,980
+y si yo creo otra empresa como hago, porque ahorita está moriendo cuatro nuevas.
+
+114
+00:08:49,620 --> 00:08:54,260
+Y la idea es que cada empresa tenga suciera parte, ¿no? Porque eso no hace, tiene su huevo, ¿no?
+
+115
+00:08:58,180 --> 00:09:02,660
+Pero entonces la idea es que a qué viene el tema,
+
+116
+00:09:02,660 --> 00:09:07,700
+la jefe, que tendría que crear un centro de cuentas o algo así o no.
+
+117
+00:09:07,700 --> 00:09:17,440
+porque la Secretaría no me va a ver los reportes de cuanto me ganan a otra C, si me entiende y la Secretaría tiene que tener acceso a eso
+
+118
+00:09:17,440 --> 00:09:25,440
+para meter la información del usuario, porque yo no me va a poner como marica ya en el eje de la Secretaría de Paisón,
+
+119
+00:09:25,440 --> 00:09:27,440
+por ver recepcionista y cada se
+
+120
+00:09:33,360 --> 00:09:35,560
+es el administrador, el gerente.
+
+121
+00:09:35,560 --> 00:09:38,560
+Es decir, yo que quiero que mi papá coja y se meta,
+
+122
+00:09:38,560 --> 00:09:41,080
+se meta su página huevo, lo que sea, va a su servidor,
+
+123
+00:09:41,080 --> 00:09:43,400
+va a su aplicación, ¿cierto?
+
+124
+00:09:45,000 --> 00:09:48,200
+Y leigan, por ejemplo,
+
+125
+00:09:49,600 --> 00:09:51,280
+voy a ver cómo hacer tímotos,
+
+126
+00:09:51,280 --> 00:09:52,800
+que en donde estoy yo entre leiga,
+
+127
+00:09:52,800 --> 00:09:58,120
+Esas sí, son las 4 y 55 de la tarde.
+
+128
+00:09:58,120 --> 00:10:00,880
+Se han facturado...
+
+129
+00:10:00,880 --> 00:10:06,920
+Facturadas, o sea, han vendido 34 tecnomecanicas.
+
+130
+00:10:06,920 --> 00:10:15,360
+Y hipotéticamente, Marica nos están quedando 80 millones.
+
+131
+00:10:15,360 --> 00:10:16,840
+Hipotéticamente, olan.
+
+132
+00:10:16,840 --> 00:10:20,200
+Pues solo, al menos, lo del coste es menos, Marica, pero por lo menos decirme cuánta
+
+133
+00:10:20,200 --> 00:10:26,540
+y que si yo quiero ver el detalle yo pueda coger y decir el día llegamos voy a ver el día ayer colocó 23
+
+134
+00:10:26,540 --> 00:10:30,660
+llobr, me dice cómo me fue y sacarlo en un excel.
+
+135
+00:10:37,700 --> 00:10:43,320
+Arí que es que eso es lo que yo quiero guardar acá porque es que es es hartón uno,
+
+136
+00:10:43,320 --> 00:10:47,440
+Marica tener que guardar en un hiperputexel ni su peditada que aprende una muchacha de estas
+
+137
+00:10:47,440 --> 00:10:51,280
+fosas y ediclas, la forma que ustedes saben que eso lo colocan en más 50 mil o menos 50
+
+138
+00:10:51,280 --> 00:10:54,560
+mil en la forma de uno ni centera, porque la imprimen es también de ahí un momento,
+
+139
+00:10:54,560 --> 00:10:58,320
+eso tiene que ver todo cómo está formulado y todo el tiempo por nuestra tranquila.
+
+140
+00:11:03,320 --> 00:11:08,160
+Exactamente. Pero entonces, yo,
+
+141
+00:11:08,160 --> 00:11:12,200
+di opino, tiene que ver un centro de cuentas para que las secretarias,
+
+142
+00:11:12,200 --> 00:11:19,200
+de la Secretaría de Cases, puede ingresar información. Si me acuentendé.
+
+143
+00:11:19,200 --> 00:11:25,880
+Y un usuario administrador que pueda verificar el de esta, ¿cómo acarse?
+
+144
+00:11:25,880 --> 00:11:31,680
+¿Qué debería de un ardeno mi papá? Un usuario administrador que diga así, acabamos bien.
+
+145
+00:11:31,680 --> 00:11:36,520
+Tata, tata, tata, tata, obviamente que todos puedan descargar el excelde sucede, ¿no?
+
+146
+00:11:36,520 --> 00:11:41,800
+Que las secretarias pueden descargar tal y tal, marica. El tema es sí, pero en tu llegan a
+
+147
+00:11:41,800 --> 00:11:49,800
+en esa mierda y potéticamente no metimos tal mano, no sé qué tal, no sé qué hacer una reversión o no sé,
+
+148
+00:11:49,800 --> 00:11:56,300
+es decir, una reversión, porque si meten al Boma Marica y se han podido, pues como me ha mochado
+
+149
+00:11:56,300 --> 00:12:04,300
+de ustedes, salió la llamada, metase a la pantalla huevo en el zoom, que no hay que no tengo zoom,
+
+150
+00:12:04,300 --> 00:12:07,580
+No te sientes el celular.
+
+151
+00:12:07,580 --> 00:12:09,300
+Vere a ver ahora.
+
+152
+00:12:09,300 --> 00:12:11,060
+Vere a ver ahora.
+
+153
+00:12:11,060 --> 00:12:12,300
+Comparte allá.
+
+154
+00:12:12,300 --> 00:12:13,300
+Comparte.
+
+155
+00:12:16,100 --> 00:12:18,700
+Te la viso acá, pero está lejos.
+
+156
+00:12:34,300 --> 00:12:36,300
+T
+
+157
+00:13:04,300 --> 00:13:06,300
+la mesa.
+
+158
+00:13:06,300 --> 00:13:08,300
+la mesa.
+
+159
+00:13:08,300 --> 00:13:26,540
+El anexor de la C le llega la vaina.
+
+160
+00:13:38,300 --> 00:13:46,940
+pero el código le llega usted.
+
+161
+00:13:46,940 --> 00:13:52,900
+Ven, Amarika, teniendo esto en cuenta esto que estamos hablando.
+
+162
+00:13:52,900 --> 00:13:55,680
+¿Qué es que puede hacer?
+
+163
+00:13:55,680 --> 00:13:57,820
+O sea, ¿qué me interesa también hacer?
+
+164
+00:13:57,820 --> 00:13:59,780
+Mi papá es muy al antigua.
+
+165
+00:13:59,780 --> 00:14:00,980
+Es posible.
+
+166
+00:14:00,980 --> 00:14:04,620
+Yo sé que es posible y es lo que vamos a hacer ahorita de pronto.
+
+167
+00:14:04,620 --> 00:14:11,620
+Si montamos eso, Marica, yo quiero que cada, cada que cada dos horas, y potéticamente hablando,
+
+168
+00:14:13,620 --> 00:14:19,620
+me envíe una actualización, un WhatsApp, guam, unos WhatsApp, como estamos haciendo los recordatorios,
+
+169
+00:14:19,620 --> 00:14:24,620
+la misma mierda, pero que me mande una información, decir, certimotos,
+
+170
+00:14:24,620 --> 00:14:32,540
+y 47 tecnomecánicas, tal, tal, tal, 89 tecnomecánicas, pepito pera 58
+
+171
+00:14:32,540 --> 00:14:37,420
+tecnomecánicas, jefer son confecciones, no en tal
+
+172
+00:14:37,420 --> 00:14:44,540
+tecnomecánicas, vainas así, Marica. Eso, que era eso.
+
+173
+00:14:54,620 --> 00:15:05,660
+no, pero iramos para mi papá no le sirve de un papel muy, te vamos a arnguazar como me enviana
+
+174
+00:15:05,660 --> 00:15:11,100
+mi un reporte, porque es que la niña lo escriben, no tiene nada malo, pero pues, si me entiende,
+
+175
+00:15:11,100 --> 00:15:23,700
+marica, eso es literalmente, FF, lo fechamos, tal, tal, tal, cierre, el día, tal, tal,
+
+176
+00:15:23,700 --> 00:15:26,460
+tal, tal, tal, le va a mandar. No es ría, ¿no?
+
+177
+00:15:26,460 --> 00:15:38,460
+y potéticamente, a ver, a ver, a ver, a ver, a ver, a ver, a ver, a ver, a ver, a ver,
+
+178
+00:15:38,460 --> 00:15:40,460
+tengo que llamar una perra.
+
+179
+00:15:48,460 --> 00:15:52,460
+Empezada, dije, tengo todo efectivo, tal, pero me que estoy buscando no que me enviaron
+
+180
+00:15:52,460 --> 00:15:55,100
+de otra vez que era más bonito para que vea.
+
+181
+00:16:03,900 --> 00:16:04,900
+Así.
+
+182
+00:16:05,540 --> 00:16:07,700
+Pero, pero, me, pero, me, ¿ dónde está el person?
+
+183
+00:16:08,460 --> 00:16:09,540
+¿Pas de uno las cuatro?
+
+184
+00:16:09,540 --> 00:16:11,500
+Como ustedes, pero el tema es que ustedes
+
+185
+00:16:11,500 --> 00:16:13,580
+va a configurar mapos y ustedes no están
+
+186
+00:16:13,580 --> 00:16:15,540
+girando, Mariko, se suelen girar, no, mira.
+
+187
+00:16:22,460 --> 00:16:27,460
+la gente.
+
+188
+00:16:27,460 --> 00:16:29,460
+El emandelo reporte al guata
+
+189
+00:16:29,460 --> 00:16:32,460
+para que los vea.
+
+190
+00:16:32,460 --> 00:16:36,460
+y
+
+191
+00:16:36,460 --> 00:16:39,460
+y
+
+192
+00:16:39,460 --> 00:16:44,460
+y
+
+193
+00:16:44,460 --> 00:16:47,460
+y
+
+194
+00:16:47,460 --> 00:16:50,460
+y
+
+195
+00:16:50,460 --> 00:16:54,460
+y
+
+196
+00:16:54,460 --> 00:16:56,460
+y
+
+197
+00:16:56,460 --> 00:16:59,460
+y
+
+198
+00:16:59,460 --> 00:17:01,460
+y
+
+199
+00:17:01,460 --> 00:17:14,140
+y yo poder saber, Marija, porque en la planilla tengo que colocarlo o no, que ya no me puedan
+
+200
+00:17:14,140 --> 00:17:18,860
+decir, no, Juancho, porque para que tome que en un mismo formato y yo poder decir, porque
+
+201
+00:17:18,860 --> 00:17:23,140
+a veces a veces a veces a veces que los exeres colocan Alex y por, y por, y potéticamente
+
+202
+00:17:23,140 --> 00:17:26,180
+Háganlo con su nombre. Colocan Jefferson.
+
+203
+00:17:27,220 --> 00:17:30,220
+Un día. Y al día siguiente le colocan
+
+204
+00:17:31,140 --> 00:17:34,540
+Jeffer y al día siguiente que ven.
+
+205
+00:17:35,540 --> 00:17:37,220
+Entonces cuando yo voy a mirar en un Excel,
+
+206
+00:17:37,580 --> 00:17:39,260
+cuando yo a mi Excel, Marica pues, y pues,
+
+207
+00:17:39,260 --> 00:17:40,540
+pues, ¿cuánto me radico?
+
+208
+00:17:40,660 --> 00:17:42,060
+Jefferson me radico cinco,
+
+209
+00:17:42,060 --> 00:17:44,620
+Jeffer me radico diez y quedó me radico dos.
+
+210
+00:17:46,380 --> 00:17:48,260
+Mentiras, entonces Jefferson,
+
+211
+00:17:48,260 --> 00:17:49,620
+¿qué vea me radico? Y es 17.
+
+212
+00:17:50,300 --> 00:17:51,780
+Que eso tuve un problema ahorita con mucho
+
+213
+00:17:51,780 --> 00:17:55,620
+de los chachos esta mañana, que es un muchacho que trabajaba para mí, pero me mandaba
+
+214
+00:17:55,620 --> 00:17:58,780
+servicios de trabajo, que estaba para mí, que no te trace.
+
+215
+00:17:58,780 --> 00:18:02,660
+Y entre Marica y Leif, si, fue puta en una raica, en tanto tiempo, mejor como así,
+
+216
+00:18:02,660 --> 00:18:06,940
+me mire, tata y nos pusimos las placa y no les colocando el nombre, le colocando el nombre
+
+217
+00:18:06,940 --> 00:18:08,940
+mal, les queda mal escrito.
+
+218
+00:18:08,940 --> 00:18:10,940
+O sea, la error humana.
+
+219
+00:18:17,500 --> 00:18:21,700
+Y así con esa página, Marica, nosotros podemos manejar la base de datos automáticos,
+
+220
+00:18:21,700 --> 00:18:25,700
+en el tema de los recordatorios de las tecn mecónicas.
+
+221
+00:18:25,700 --> 00:18:33,700
+La enlace, claro, claro, Marika, la idea.
+
+222
+00:18:33,700 --> 00:18:36,700
+Si yo digo el Maníso la tecn mecánica hoy,
+
+223
+00:18:36,700 --> 00:18:39,700
+ya automáticamente el sistema sabe que en un año,
+
+224
+00:18:39,700 --> 00:18:44,700
+12 meses le va a recordar al número que aparece ahí,
+
+225
+00:18:44,700 --> 00:18:48,700
+que su tecn mecánica está próxima a encerce.
+
+226
+00:18:48,700 --> 00:18:53,500
+y uno puede tener la base de datos y descargar la base de datos y todo, es que toma más que no es eso.
+
+227
+00:18:56,340 --> 00:18:57,460
+Y si haces sola,
+
+228
+00:18:58,460 --> 00:19:02,300
+Marica, yo perdido base de datos, acá llegue a la empresa, Mariki, no tenian bases de datos,
+
+229
+00:19:02,300 --> 00:19:07,500
+mientras empezare a hacerles un controlado que me unificaran todas las planillas de por lo menos este año,
+
+230
+00:19:07,500 --> 00:19:10,340
+te empezará a ver qué números y empezará a llamar a la gente.
+
+231
+00:19:13,380 --> 00:19:14,700
+Es el gallito.
+
+232
+00:19:18,700 --> 00:19:26,760
+y otro chatbot también está la prueba. Con otro chatbot que se te hace que ese signo es mío,
+
+233
+00:19:26,760 --> 00:19:33,020
+pero yo precisamente tu pierda la tuta porque tuvimos una monta ejecutiva, que era,
+
+234
+00:19:33,020 --> 00:19:40,180
+nosotros, contar las empresas que tenemos, pues son como yo le cal, pues que manejemos directamente,
+
+235
+00:19:40,180 --> 00:19:48,460
+así como sentales como 8 aquí por la zona, si me entiende, en girar 2 por ahí unas 5, 8,
+
+236
+00:19:48,460 --> 00:19:51,100
+No sé cuántas que eran entre mi papá y pues que es un barrio,
+
+237
+00:19:51,100 --> 00:19:53,160
+Marika nos dan ni cuántas tenemos, pero hipotéticamente
+
+238
+00:19:53,160 --> 00:19:55,700
+pongamos ocho cedes, ¿sierto?
+
+239
+00:19:55,700 --> 00:19:59,580
+Entonces, hipapá empiece a unificar todo como un poco
+
+240
+00:19:59,580 --> 00:20:02,020
+cardeñoso.
+
+241
+00:20:02,020 --> 00:20:02,540
+¿Cierto?
+
+242
+00:20:06,300 --> 00:20:09,100
+Hipotéticamente digamos que tenemos diez empresas.
+
+243
+00:20:09,100 --> 00:20:14,580
+Pince, pues, 15 empresas de las cuales dos están en Santa
+
+244
+00:20:14,580 --> 00:20:14,940
+Marte.
+
+245
+00:20:18,460 --> 00:20:22,460
+y
+
+246
+00:20:22,460 --> 00:20:28,460
+y
+
+247
+00:20:28,460 --> 00:20:32,460
+y
+
+248
+00:20:32,460 --> 00:20:36,460
+y
+
+249
+00:20:36,460 --> 00:20:40,460
+y
+
+250
+00:20:40,460 --> 00:20:44,460
+y
+
+251
+00:21:44,460 --> 00:21:49,460
+Y ahora, la verdad, es que no es un poco más.
+
+252
+00:21:49,460 --> 00:21:54,460
+Y ahora, la verdad, es que no es un poco más.
+
+253
+00:21:54,460 --> 00:21:59,460
+Y ahora, la verdad, es que no es un poco más.
+
+254
+00:21:59,460 --> 00:22:04,460
+Y ahora, la verdad, es que no es un poco más.
+
+255
+00:22:04,460 --> 00:22:08,460
+Y ahora, la verdad, es que no es un poco más.
+
+256
+00:22:08,460 --> 00:22:15,460
+ahora sí ahora sí más o menos,
+
+257
+00:22:15,460 --> 00:22:18,460
+hagámele rápido que me tocase una vuelta a América.
+
+258
+00:22:18,460 --> 00:22:20,460
+Entonces que está hablando yo,
+
+259
+00:22:20,460 --> 00:22:23,460
+bueno y potéting me tengo siempre asomde de Santa Marta,
+
+260
+00:22:23,460 --> 00:22:26,460
+cuatro en Fusa,
+
+261
+00:22:26,460 --> 00:22:31,460
+coloquemolo de cuantas son 15 y no hay en Girardo,
+
+262
+00:22:31,460 --> 00:22:33,460
+hablando mierda.
+
+263
+00:22:33,460 --> 00:22:36,260
+y no hayan girado, no es dando mierda.
+
+264
+00:22:39,260 --> 00:22:43,260
+Pero de esas se diven entre las cuatro,
+
+265
+00:22:43,260 --> 00:22:45,220
+los cuatro diferentes tipos, entonces,
+
+266
+00:22:45,220 --> 00:22:47,260
+en Santa Marta, tengo una escuela y un serese
+
+267
+00:22:47,260 --> 00:22:54,940
+en Fusai, Cedias y una escuela.
+
+268
+00:22:54,940 --> 00:22:57,460
+Y sin contar, bueno, ahí como por
+
+269
+00:22:57,460 --> 00:22:58,580
+en sí, me da dando mierda.
+
+270
+00:22:58,580 --> 00:23:01,780
+Hay más baños, pero bueno, y una escuela
+
+271
+00:23:01,780 --> 00:23:13,060
+y en girar, ¿dó tenemos CDA escuela y stía? Entonces, la lláquia por mi acuales. Y CRS.
+
+272
+00:23:13,060 --> 00:23:17,980
+Entonces la idea mío es unificar todo, porque nosotros estamos entregando una
+
+273
+00:23:17,980 --> 00:23:23,060
+tarjetica de fielización, que mandó un QR como WhatsApp, que atiende una muchacha.
+
+274
+00:23:23,060 --> 00:23:28,320
+El tema es que la idea es que es sociográfica, entonces la gente diga,
+
+275
+00:23:28,320 --> 00:23:29,880
+buenas para averiguar por una
+
+276
+00:23:29,880 --> 00:23:32,760
+tecnomécanica, pero que entonces yo
+
+277
+00:23:32,760 --> 00:23:34,160
+puedo decir, sí, señor, en que
+
+278
+00:23:34,160 --> 00:23:35,360
+ciudad se encuentro ubicado por
+
+279
+00:23:35,360 --> 00:23:36,360
+favorse de exceler en la ciudad,
+
+280
+00:23:36,360 --> 00:23:38,400
+en la que se encuentra, fusa,
+
+281
+00:23:38,400 --> 00:23:41,640
+miradó donde allá donde allá
+
+282
+00:23:41,640 --> 00:23:43,480
+se deas, si me encuentre, ¿eh?
+
+283
+00:23:43,480 --> 00:23:45,080
+Y gente, ¿fusa?
+
+284
+00:23:45,080 --> 00:23:45,880
+¿Está?
+
+285
+00:23:45,880 --> 00:23:46,880
+¿Listo?
+
+286
+00:23:46,880 --> 00:23:49,720
+¿Enfusa, ¿tenemos? ¿Qué tipo de
+
+287
+00:23:49,720 --> 00:23:52,040
+qué tipo de hículo le queda hacer
+
+288
+00:23:52,040 --> 00:23:53,080
+su tecnomécanica? ¿Entonces,
+
+289
+00:23:53,080 --> 00:23:57,880
+moto, carro, camión, mula, no
+
+290
+00:23:57,880 --> 00:24:04,960
+o sea, motocarro. Entonces hay unos cedas que pueden hacerlo y otros que no,
+
+291
+00:24:04,960 --> 00:24:09,640
+todo depende de la ciudad que manda la opción. Entonces, moto. Sí, señor,
+
+292
+00:24:09,640 --> 00:24:12,400
+moto está en empresa a certimotos.
+
+293
+00:24:16,600 --> 00:24:23,200
+Reartimotos, la tecnomicánica tiene un valor entre 234,000 pesos, 234, 400
+
+294
+00:24:23,200 --> 00:24:25,600
+y 236 mil pesos.
+
+295
+00:24:28,600 --> 00:24:30,560
+Pero una de esas llenas de WhatsApp
+
+296
+00:24:30,560 --> 00:24:32,560
+uno le roba la información al usuario
+
+297
+00:24:32,560 --> 00:24:34,120
+por por regalerme su nombre,
+
+298
+00:24:34,120 --> 00:24:35,480
+regalerme su número de teléfono,
+
+299
+00:24:35,480 --> 00:24:36,080
+si me entiende.
+
+300
+00:24:40,120 --> 00:24:43,520
+Esa es la idea amarica que eso.
+
+301
+00:24:45,920 --> 00:24:46,320
+¿Qué?
+
+302
+00:24:50,000 --> 00:24:52,800
+Yo la aplique temporalmente,
+
+303
+00:24:52,800 --> 00:24:59,800
+pero, Marika, yo no tenía preso puesto y no estaba en cargo ninguna empresa, pero estaba haciendo el borrador y me funcionó, pero le hice con guatti.
+
+304
+00:25:02,400 --> 00:25:08,400
+Pero es mejor hacer uno normal, Marika, es lo que tanta chuchay, es que se le ponieron una limitante y no es que es mejor como sé.
+
+305
+00:25:09,400 --> 00:25:10,700
+No, además, la cabeza.
+
+306
+00:25:11,900 --> 00:25:13,900
+Y es al organizado que cualquier cosa fue.
+
+307
+00:25:22,800 --> 00:25:26,800
+y
+
+308
+00:25:26,800 --> 00:25:32,800
+y
+
+309
+00:25:32,800 --> 00:25:38,800
+y
+
+310
+00:25:38,800 --> 00:25:42,800
+y
+
+311
+00:25:42,800 --> 00:25:46,800
+y
+
+312
+00:25:46,800 --> 00:25:50,800
+y
+
+313
+00:27:20,800 --> 00:27:46,280
+a ver caso
+

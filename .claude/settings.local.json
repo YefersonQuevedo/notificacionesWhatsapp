@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(\"C:\\xampp\\mysql\\bin\\mysql.exe\" -u root -e \"CREATE DATABASE IF NOT EXISTS soat_reminders CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; SHOW DATABASES LIKE ''soat_reminders'';\")",
+      "Bash(npm run db:migrate:*)",
+      "Bash(cat:*)",
+      "Bash(npm run db:seed:*)",
+      "Bash(npm run dev:backend:*)",
+      "Bash(PORT=3001 npm run dev:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm install:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(tasklist /FI \"PID eq 30584\" /FO LIST)",
+      "Bash(curl:*)",
+      "Bash(npm uninstall:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
