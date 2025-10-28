@@ -331,7 +331,7 @@ export default function WhatsApp() {
               El sistema envía recordatorios automáticamente en los siguientes momentos:
             </p>
             <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
-              <li><strong>30 días antes</strong> del vencimiento del SOAT</li>
+              <li><strong>30 días antes</strong> del vencimiento de la tecnomecánica</li>
               <li><strong>15 días antes</strong> del vencimiento</li>
               <li><strong>7 días antes</strong> del vencimiento</li>
               <li><strong>5 días antes</strong> del vencimiento</li>
@@ -355,16 +355,16 @@ export default function WhatsApp() {
                 ⚠️ Hola JUAN PÉREZ!
               </p>
               <p className="text-gray-800 mt-2">
-                Le recordamos que el SOAT de su vehículo placa <strong>ABC123</strong> vence en 7 días.
+                Le recordamos que la <strong>tecnomecánica</strong> de su vehículo placa <strong>ABC123</strong> vence en 7 días.
               </p>
               <p className="text-gray-800 mt-2">
                 📅 Fecha de vencimiento: <strong>05/11/2025</strong>
               </p>
               <p className="text-gray-800 mt-2">
-                Por favor renueve su SOAT a tiempo para evitar multas e inconvenientes.
+                Por favor renueve su tecnomecánica a tiempo para evitar multas e inconvenientes.
               </p>
               <p className="text-gray-800 mt-2">
-                ¿Necesita ayuda para renovarlo? Responda este mensaje.
+                ¿Necesita ayuda? Responda este mensaje o contáctenos.
               </p>
             </div>
           </div>
