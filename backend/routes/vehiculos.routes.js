@@ -215,10 +215,19 @@ router.get('/dashboard/proximos-vencer', verificarEmpresa, async (req, res) => {
           [Op.between]: [hoy, enXDias]
         }
       },
-      include: [{
-        model: Cliente,
-        as: 'cliente'
-      }],
+      include: [
+        {
+          model: Cliente,
+          as: 'cliente'
+        },
+        {
+          model: Notificacion,
+          as: 'notificaciones',
+          separate: true,
+          order: [['fecha_envio', 'DESC']],
+          limit: 1
+        }
+      ],
       order: [['fecha_vencimiento_soat', 'ASC']]
     });
 

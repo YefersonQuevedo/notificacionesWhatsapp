@@ -136,6 +136,90 @@ router.post('/enviar-cliente', verificarEmpresa, verificarRol('admin', 'operador
   }
 });
 
+// Enviar recordatorio manual por vehículo
+router.post('/enviar-recordatorio', verificarEmpresa, verificarRol('admin', 'operador'), async (req, res) => {
+  try {
+    const { vehiculoId } = req.body;
+
+    if (!vehiculoId) {
+      return res.status(400).json({ error: 'Vehículo ID es requerido' });
+    }
+
+    // Buscar vehículo con cliente
+    const { Vehiculo, Cliente, Notificacion } = await import('../models/associations.js');
+    const { generarMensajeRecordatorio } = await import('../utils/recordatorios.js');
+
+    const vehiculo = await Vehiculo.findOne({
+      where: {
+        id: vehiculoId,
+        empresa_id: req.usuario.empresa_id
+      },
+      include: [{
+        model: Cliente,
+        as: 'cliente'
+      }]
+    });
+
+    if (!vehiculo) {
+      return res.status(404).json({ error: 'Vehículo no encontrado' });
+    }
+
+    if (!vehiculo.cliente) {
+      return res.status(400).json({ error: 'El vehículo no tiene cliente asignado' });
+    }
+
+    if (!vehiculo.cliente.telefono) {
+      return res.status(400).json({ error: 'El cliente no tiene número de teléfono' });
+    }
+
+    if (!vehiculo.fecha_vencimiento_soat) {
+      return res.status(400).json({ error: 'El vehículo no tiene fecha de vencimiento' });
+    }
+
+    // Calcular días hasta vencimiento
+    const hoy = new Date();
+    const fechaVencimiento = new Date(vehiculo.fecha_vencimiento_soat);
+    const diasRestantes = Math.ceil((fechaVencimiento - hoy) / (1000 * 60 * 60 * 24));
+
+    // Generar mensaje (usando formato simulado de notificación)
+    const notificacionSimulada = {
+      vehiculo: vehiculo,
+      tipo_recordatorio: diasRestantes <= 7 ? '7_dias' : '30_dias'
+    };
+
+    const mensaje = generarMensajeRecordatorio(notificacionSimulada);
+
+    // Enviar mensaje
+    await whatsappService.enviarMensaje(vehiculo.cliente.telefono, mensaje);
+
+    // Registrar envío manual en notificaciones
+    await Notificacion.create({
+      empresa_id: req.usuario.empresa_id,
+      vehiculo_id: vehiculo.id,
+      tipo_recordatorio: 'manual',
+      fecha_programada: new Date(),
+      enviado: true,
+      fecha_envio: new Date(),
+      mensaje_enviado: mensaje,
+      enviado_por: req.usuario.id
+    });
+
+    console.log(`✓ Recordatorio manual enviado para vehículo ${vehiculo.placa} a ${vehiculo.cliente.nombre}`);
+
+    res.json({
+      message: 'Recordatorio enviado exitosamente',
+      vehiculo: {
+        placa: vehiculo.placa,
+        cliente: vehiculo.cliente.nombre
+      },
+      diasRestantes
+    });
+  } catch (error) {
+    console.error('Error enviando recordatorio manual:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Ejecutar envío manual de notificaciones
 router.post('/enviar-notificaciones', verificarEmpresa, verificarRol('admin', 'operador'), async (req, res) => {
   try {

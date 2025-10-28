@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { AlertCircle, Car, Users, Calendar, TrendingUp } from 'lucide-react';
-import { vehiculosAPI, clientesAPI } from '../services/api';
+import { AlertCircle, Car, Users, Calendar, Send, CheckCircle, Clock } from 'lucide-react';
+import { vehiculosAPI, clientesAPI, whatsappAPI } from '../services/api';
 import { format, differenceInDays } from 'date-fns';
 import { es } from 'date-fns/locale';
 import toast from 'react-hot-toast';
@@ -13,6 +13,7 @@ export default function Dashboard() {
   });
   const [loading, setLoading] = useState(true);
   const [diasFiltro, setDiasFiltro] = useState(30);
+  const [enviandoRecordatorio, setEnviandoRecordatorio] = useState(null);
 
   useEffect(() => {
     cargarDatos();
@@ -44,6 +45,19 @@ export default function Dashboard() {
     if (dias <= 7) return 'bg-orange-100 text-orange-800';
     if (dias <= 15) return 'bg-yellow-100 text-yellow-800';
     return 'bg-blue-100 text-blue-800';
+  };
+
+  const enviarRecordatorioManual = async (vehiculoId) => {
+    try {
+      setEnviandoRecordatorio(vehiculoId);
+      await whatsappAPI.enviarRecordatorio(vehiculoId);
+      toast.success('Recordatorio enviado exitosamente');
+      await cargarDatos(); // Recargar datos para actualizar estado
+    } catch (error) {
+      toast.error(error.response?.data?.error || 'Error enviando recordatorio');
+    } finally {
+      setEnviandoRecordatorio(null);
+    }
   };
 
   if (loading) {
@@ -141,6 +155,10 @@ export default function Dashboard() {
                   <th className="table-header">Fecha Vencimiento</th>
                   <th className="table-header">Días Restantes</th>
                   <th className="table-header">Urgencia</th>
+                  <th className="table-header">Estado Notificación</th>
+                  <th className="table-header">Tipo</th>
+                  <th className="table-header">Último Envío</th>
+                  <th className="table-header">Acciones</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -149,6 +167,9 @@ export default function Dashboard() {
                     new Date(vehiculo.fecha_vencimiento_soat),
                     new Date()
                   );
+
+                  const ultimaNotificacion = vehiculo.notificaciones?.[0];
+                  const tieneCliente = vehiculo.cliente && vehiculo.cliente.telefono;
 
                   return (
                     <tr key={vehiculo.id} className="hover:bg-gray-50">
@@ -162,6 +183,58 @@ export default function Dashboard() {
                         <span className={`px-3 py-1 rounded-full text-xs font-medium ${getUrgenciaColor(diasRestantes)}`}>
                           {diasRestantes <= 1 ? 'URGENTE' : diasRestantes <= 7 ? 'Alta' : diasRestantes <= 15 ? 'Media' : 'Baja'}
                         </span>
+                      </td>
+                      <td className="table-cell">
+                        {ultimaNotificacion?.enviado ? (
+                          <span className="flex items-center text-green-600 text-sm">
+                            <CheckCircle className="h-4 w-4 mr-1" />
+                            Enviado
+                          </span>
+                        ) : (
+                          <span className="flex items-center text-gray-500 text-sm">
+                            <Clock className="h-4 w-4 mr-1" />
+                            Pendiente
+                          </span>
+                        )}
+                      </td>
+                      <td className="table-cell">
+                        {ultimaNotificacion ? (
+                          <span className={`px-2 py-1 rounded text-xs font-medium ${
+                            ultimaNotificacion.tipo_recordatorio === 'manual'
+                              ? 'bg-purple-100 text-purple-800'
+                              : 'bg-blue-100 text-blue-800'
+                          }`}>
+                            {ultimaNotificacion.tipo_recordatorio === 'manual' ? 'Manual' : 'Automático'}
+                          </span>
+                        ) : (
+                          <span className="text-gray-400 text-xs">-</span>
+                        )}
+                      </td>
+                      <td className="table-cell">
+                        {ultimaNotificacion?.fecha_envio ? (
+                          <span className="text-sm text-gray-600">
+                            {format(new Date(ultimaNotificacion.fecha_envio), 'dd/MM/yyyy HH:mm')}
+                          </span>
+                        ) : (
+                          <span className="text-gray-400 text-xs">-</span>
+                        )}
+                      </td>
+                      <td className="table-cell">
+                        <button
+                          onClick={() => enviarRecordatorioManual(vehiculo.id)}
+                          disabled={!tieneCliente || enviandoRecordatorio === vehiculo.id}
+                          className={`flex items-center space-x-1 px-3 py-1 rounded text-sm ${
+                            !tieneCliente
+                              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                              : 'bg-primary-600 text-white hover:bg-primary-700'
+                          }`}
+                          title={!tieneCliente ? 'Cliente sin teléfono' : 'Enviar recordatorio manual'}
+                        >
+                          <Send className="h-4 w-4" />
+                          <span>
+                            {enviandoRecordatorio === vehiculo.id ? 'Enviando...' : 'Enviar'}
+                          </span>
+                        </button>
                       </td>
                     </tr>
                   );
