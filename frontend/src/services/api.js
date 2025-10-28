@@ -56,7 +56,7 @@ export const vehiculosAPI = {
   crear: (data) => api.post('/vehiculos', data),
   actualizar: (id, data) => api.put(`/vehiculos/${id}`, data),
   eliminar: (id) => api.delete(`/vehiculos/${id}`),
-  proximosVencer: () => api.get('/vehiculos/dashboard/proximos-vencer')
+  proximosVencer: (dias = 30) => api.get('/vehiculos/dashboard/proximos-vencer', { params: { dias } })
 };
 
 // Importación

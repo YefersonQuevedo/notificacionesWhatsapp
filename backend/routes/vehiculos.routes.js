@@ -192,16 +192,27 @@ router.delete('/:id', verificarEmpresa, async (req, res) => {
 // Obtener vehículos próximos a vencer
 router.get('/dashboard/proximos-vencer', verificarEmpresa, async (req, res) => {
   try {
+    // Obtener días del query param, por defecto 30
+    const dias = parseInt(req.query.dias) || 30;
+
+    // Validar que sea un número razonable (entre 1 y 365 días)
+    if (dias < 1 || dias > 365) {
+      return res.status(400).json({ error: 'Los días deben estar entre 1 y 365' });
+    }
+
     const hoy = new Date();
-    const en30Dias = new Date();
-    en30Dias.setDate(en30Dias.getDate() + 30);
+    hoy.setHours(0, 0, 0, 0);
+
+    const enXDias = new Date();
+    enXDias.setDate(enXDias.getDate() + dias);
+    enXDias.setHours(23, 59, 59, 999);
 
     const vehiculos = await Vehiculo.findAll({
       where: {
         empresa_id: req.usuario.empresa_id,
         activo: true,
         fecha_vencimiento_soat: {
-          [Op.between]: [hoy, en30Dias]
+          [Op.between]: [hoy, enXDias]
         }
       },
       include: [{
@@ -211,7 +222,14 @@ router.get('/dashboard/proximos-vencer', verificarEmpresa, async (req, res) => {
       order: [['fecha_vencimiento_soat', 'ASC']]
     });
 
-    res.json(vehiculos);
+    res.json({
+      vehiculos,
+      filtro: {
+        dias,
+        desde: hoy,
+        hasta: enXDias
+      }
+    });
   } catch (error) {
     console.error('Error obteniendo vehículos próximos a vencer:', error);
     res.status(500).json({ error: 'Error obteniendo vehículos' });

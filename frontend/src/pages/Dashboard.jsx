@@ -12,23 +12,25 @@ export default function Dashboard() {
     proximosVencer: []
   });
   const [loading, setLoading] = useState(true);
+  const [diasFiltro, setDiasFiltro] = useState(30);
 
   useEffect(() => {
     cargarDatos();
-  }, []);
+  }, [diasFiltro]);
 
   const cargarDatos = async () => {
     try {
+      setLoading(true);
       const [vehiculosRes, clientesRes, proximosRes] = await Promise.all([
         vehiculosAPI.listar({ limit: 1 }),
         clientesAPI.listar({ limit: 1 }),
-        vehiculosAPI.proximosVencer()
+        vehiculosAPI.proximosVencer(diasFiltro)
       ]);
 
       setStats({
         totalClientes: clientesRes.data.total,
         totalVehiculos: vehiculosRes.data.total,
-        proximosVencer: proximosRes.data
+        proximosVencer: proximosRes.data.vehiculos || proximosRes.data
       });
     } catch (error) {
       toast.error('Error cargando datos del dashboard');
@@ -100,14 +102,34 @@ export default function Dashboard() {
 
       {/* Vehículos próximos a vencer */}
       <div className="card">
-        <h2 className="text-xl font-bold mb-4 flex items-center">
-          <Calendar className="mr-2 h-6 w-6 text-primary-600" />
-          Tecnomecánicas Próximas a Vencer (30 días)
-        </h2>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold flex items-center">
+            <Calendar className="mr-2 h-6 w-6 text-primary-600" />
+            Tecnomecánicas Próximas a Vencer
+          </h2>
+
+          {/* Selector de días */}
+          <div className="flex items-center space-x-2">
+            <label className="text-sm text-gray-600 font-medium">Ver próximos:</label>
+            <select
+              value={diasFiltro}
+              onChange={(e) => setDiasFiltro(parseInt(e.target.value))}
+              className="input py-2 px-3 w-32"
+            >
+              <option value="7">7 días</option>
+              <option value="15">15 días</option>
+              <option value="30">30 días</option>
+              <option value="60">60 días</option>
+              <option value="90">90 días</option>
+              <option value="180">6 meses</option>
+              <option value="365">1 año</option>
+            </select>
+          </div>
+        </div>
 
         {stats.proximosVencer.length === 0 ? (
           <p className="text-gray-500 text-center py-8">
-            No hay vehículos con tecnomecánica próxima a vencer
+            No hay vehículos con tecnomecánica próxima a vencer en los próximos {diasFiltro} días
           </p>
         ) : (
           <div className="overflow-x-auto">
