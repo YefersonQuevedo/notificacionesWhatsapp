@@ -17,6 +17,12 @@ export default function Vehiculos() {
   const [editingVehiculo, setEditingVehiculo] = useState(null);
   const [deleteDialog, setDeleteDialog] = useState({ open: false, vehiculo: null });
 
+  // Estados para el buscador de clientes
+  const [busquedaCliente, setBusquedaCliente] = useState('');
+  const [clientesFiltrados, setClientesFiltrados] = useState([]);
+  const [mostrarSugerencias, setMostrarSugerencias] = useState(false);
+  const [clienteSeleccionado, setClienteSeleccionado] = useState(null);
+
   const { register, handleSubmit, reset, formState: { errors }, setValue } = useForm();
 
   useEffect(() => {
@@ -62,6 +68,8 @@ export default function Vehiculos() {
 
   const abrirModalCrear = () => {
     setEditingVehiculo(null);
+    setBusquedaCliente('');
+    setClienteSeleccionado(null);
     reset({
       placa: '',
       cliente_id: '',
@@ -74,6 +82,16 @@ export default function Vehiculos() {
 
   const abrirModalEditar = (vehiculo) => {
     setEditingVehiculo(vehiculo);
+
+    // Configurar cliente seleccionado si existe
+    if (vehiculo.cliente) {
+      setClienteSeleccionado(vehiculo.cliente);
+      setBusquedaCliente(`${vehiculo.cliente.nombre} - ${vehiculo.cliente.cedula}`);
+    } else {
+      setClienteSeleccionado(null);
+      setBusquedaCliente('');
+    }
+
     reset({
       placa: vehiculo.placa,
       cliente_id: vehiculo.cliente_id || '',
@@ -82,6 +100,43 @@ export default function Vehiculos() {
       activo: vehiculo.activo
     });
     setModalOpen(true);
+  };
+
+  // Filtrar clientes según la búsqueda
+  const handleBusquedaCliente = (texto) => {
+    setBusquedaCliente(texto);
+
+    if (texto.length < 2) {
+      setClientesFiltrados([]);
+      setMostrarSugerencias(false);
+      return;
+    }
+
+    const textoLower = texto.toLowerCase();
+    const filtrados = clientes.filter(cliente =>
+      cliente.nombre.toLowerCase().includes(textoLower) ||
+      cliente.cedula.includes(texto) ||
+      cliente.telefono?.includes(texto)
+    ).slice(0, 10); // Máximo 10 resultados
+
+    setClientesFiltrados(filtrados);
+    setMostrarSugerencias(true);
+  };
+
+  // Seleccionar un cliente de las sugerencias
+  const seleccionarCliente = (cliente) => {
+    setClienteSeleccionado(cliente);
+    setBusquedaCliente(`${cliente.nombre} - ${cliente.cedula}`);
+    setValue('cliente_id', cliente.id);
+    setMostrarSugerencias(false);
+  };
+
+  // Limpiar selección de cliente
+  const limpiarCliente = () => {
+    setClienteSeleccionado(null);
+    setBusquedaCliente('');
+    setValue('cliente_id', '');
+    setMostrarSugerencias(false);
   };
 
   const calcularFechaVencimiento = (fechaCompra) => {
@@ -345,17 +400,91 @@ export default function Vehiculos() {
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Cliente (opcional)
             </label>
-            <select {...register('cliente_id')} className="input">
-              <option value="">Sin cliente asignado</option>
-              {clientes.map((cliente) => (
-                <option key={cliente.id} value={cliente.id}>
-                  {cliente.nombre} - {cliente.cedula}
-                </option>
-              ))}
-            </select>
+
+            <div className="relative">
+              <div className="flex gap-2">
+                <div className="flex-1 relative">
+                  <input
+                    type="text"
+                    value={busquedaCliente}
+                    onChange={(e) => handleBusquedaCliente(e.target.value)}
+                    onFocus={() => {
+                      if (busquedaCliente.length >= 2) {
+                        setMostrarSugerencias(true);
+                      }
+                    }}
+                    placeholder="Buscar por nombre, cédula o teléfono..."
+                    className="input pr-10"
+                    autoComplete="off"
+                  />
+                  <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                </div>
+
+                {clienteSeleccionado && (
+                  <button
+                    type="button"
+                    onClick={limpiarCliente}
+                    className="px-3 py-2 text-red-600 hover:text-red-800 font-medium text-sm"
+                  >
+                    Limpiar
+                  </button>
+                )}
+              </div>
+
+              {/* Sugerencias de clientes */}
+              {mostrarSugerencias && clientesFiltrados.length > 0 && (
+                <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                  {clientesFiltrados.map((cliente) => (
+                    <button
+                      key={cliente.id}
+                      type="button"
+                      onClick={() => seleccionarCliente(cliente)}
+                      className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors"
+                    >
+                      <div className="font-medium text-gray-900">{cliente.nombre}</div>
+                      <div className="text-sm text-gray-600 flex items-center gap-3 mt-1">
+                        <span>Cédula: {cliente.cedula}</span>
+                        {cliente.telefono && (
+                          <span className="text-blue-600">Tel: {cliente.telefono}</span>
+                        )}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Mensaje cuando no hay resultados */}
+              {mostrarSugerencias && busquedaCliente.length >= 2 && clientesFiltrados.length === 0 && (
+                <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg p-4 text-center text-gray-500">
+                  No se encontraron clientes con "{busquedaCliente}"
+                </div>
+              )}
+            </div>
+
+            {clienteSeleccionado && (
+              <div className="mt-2 p-3 bg-green-50 border border-green-200 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-medium text-green-900">{clienteSeleccionado.nombre}</p>
+                    <p className="text-sm text-green-700">
+                      Cédula: {clienteSeleccionado.cedula}
+                      {clienteSeleccionado.telefono && ` • Tel: ${clienteSeleccionado.telefono}`}
+                    </p>
+                  </div>
+                  <User className="h-5 w-5 text-green-600" />
+                </div>
+              </div>
+            )}
+
             <p className="text-xs text-gray-500 mt-1">
-              Puedes asignar un cliente después
+              {clienteSeleccionado
+                ? 'Cliente seleccionado correctamente'
+                : 'Escribe al menos 2 caracteres para buscar'
+              }
             </p>
+
+            {/* Campo oculto para el formulario */}
+            <input type="hidden" {...register('cliente_id')} />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
