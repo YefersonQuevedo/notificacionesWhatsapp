@@ -197,11 +197,12 @@ class WhatsAppService {
 
     try {
       // Formatear número (debe incluir código de país, ej: 573001234567)
+      // NOTA: Los números ya vienen normalizados desde la BD con código 57
       const numeroFormateado = numero.replace(/\D/g, ''); // Quitar caracteres no numéricos
       const chatId = `${numeroFormateado}@c.us`;
 
       await this.client.sendMessage(chatId, mensaje);
-      console.log(`✓ Mensaje enviado a ${numero}`);
+      console.log(`✓ Mensaje enviado a ${numeroFormateado}`);
       return true;
     } catch (error) {
       console.error(`✗ Error enviando mensaje a ${numero}:`, error);

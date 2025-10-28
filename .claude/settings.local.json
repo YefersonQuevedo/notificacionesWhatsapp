@@ -14,7 +14,9 @@
       "Bash(findstr:*)",
       "Bash(tasklist /FI \"PID eq 30584\" /FO LIST)",
       "Bash(curl:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(git commit:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

@@ -46,6 +46,24 @@ function limpiarValor(valor) {
   return valor.trim() === '' ? null : valor.trim();
 }
 
+// Normalizar teléfono para Colombia (agregar 57 si no lo tiene)
+function normalizarTelefono(telefono) {
+  if (!telefono) return null;
+
+  // Quitar caracteres no numéricos
+  let numeroLimpio = telefono.replace(/\D/g, '');
+
+  // Si está vacío después de limpiar, retornar null
+  if (!numeroLimpio) return null;
+
+  // Si no empieza con 57, agregarlo (es número colombiano)
+  if (!numeroLimpio.startsWith('57')) {
+    numeroLimpio = '57' + numeroLimpio;
+  }
+
+  return numeroLimpio;
+}
+
 // Validar si una línea es un registro válido (no es resumen ni línea vacía)
 function esRegistroValido(registro) {
   // Verificar que tenga al menos fecha, cédula y placa
@@ -101,7 +119,9 @@ export async function importarCSV(rutaArchivo, empresaId, nombreArchivo) {
     console.log(`Total de registros en CSV: ${registros.length}`);
 
     let clientesCreados = 0;
+    let clientesActualizados = 0;
     let vehiculosCreados = 0;
+    let vehiculosActualizados = 0;
     let datosRawCreados = 0;
     let lineasIgnoradas = 0;
 
@@ -163,13 +183,14 @@ export async function importarCSV(rutaArchivo, empresaId, nombreArchivo) {
       // Procesar cliente y vehículo si hay datos válidos
       if (cedula && placa && fechaStr) {
         const nombreCliente = limpiarValor(registro['TIPO DE CLIENTE']);
-        const telefono = limpiarValor(registro['TELEFONOS']);
+        const telefonoRaw = limpiarValor(registro['TELEFONOS']);
+        const telefono = normalizarTelefono(telefonoRaw); // Normalizar teléfono con 57
         const tipoDoc = limpiarValor(registro['TIPO DOC']) || 'CC';
         const fechaCompra = parsearFecha(fechaStr);
 
         if (!nombreCliente || !fechaCompra) continue;
 
-        // Buscar o crear cliente
+        // Buscar o crear/actualizar cliente
         let cliente = await Cliente.findOne({
           where: {
             empresa_id: empresaId,
@@ -179,6 +200,7 @@ export async function importarCSV(rutaArchivo, empresaId, nombreArchivo) {
         });
 
         if (!cliente) {
+          // Crear nuevo cliente
           cliente = await Cliente.create({
             empresa_id: empresaId,
             cedula: cedula,
@@ -187,9 +209,37 @@ export async function importarCSV(rutaArchivo, empresaId, nombreArchivo) {
             tipo_documento: tipoDoc
           }, { transaction });
           clientesCreados++;
+
+          if (telefonoRaw && telefono) {
+            console.log(`📞 Nuevo cliente ${nombreCliente}: ${telefonoRaw} → ${telefono}`);
+          }
+        } else {
+          // Actualizar cliente existente con datos más recientes
+          const datosActualizados = {};
+
+          if (nombreCliente && nombreCliente !== cliente.nombre) {
+            datosActualizados.nombre = nombreCliente;
+          }
+
+          if (telefono && telefono !== cliente.telefono) {
+            datosActualizados.telefono = telefono;
+            if (telefonoRaw) {
+              console.log(`📞 Actualizando teléfono de ${nombreCliente}: ${cliente.telefono || 'sin tel'} → ${telefono}`);
+            }
+          }
+
+          if (tipoDoc && tipoDoc !== cliente.tipo_documento) {
+            datosActualizados.tipo_documento = tipoDoc;
+          }
+
+          if (Object.keys(datosActualizados).length > 0) {
+            await cliente.update(datosActualizados, { transaction });
+            clientesActualizados++;
+            console.log(`🔄 Cliente actualizado: ${nombreCliente} (${cedula})`);
+          }
         }
 
-        // Buscar o crear vehículo
+        // Buscar o crear/actualizar vehículo
         const vehiculoExistente = await Vehiculo.findOne({
           where: {
             empresa_id: empresaId,
@@ -199,6 +249,7 @@ export async function importarCSV(rutaArchivo, empresaId, nombreArchivo) {
         });
 
         if (!vehiculoExistente) {
+          // Crear nuevo vehículo
           const fechaVencimiento = calcularVencimientoSoat(fechaCompra);
 
           await Vehiculo.create({
@@ -213,7 +264,29 @@ export async function importarCSV(rutaArchivo, empresaId, nombreArchivo) {
           vehiculosCreados++;
           registrosNuevos.push({ cedula, placa, fechaCompra: fechaStr });
         } else {
-          registrosDuplicados.push({ cedula, placa });
+          // Actualizar vehículo existente con datos más recientes
+          const datosVehiculoActualizados = {};
+          const fechaVencimiento = calcularVencimientoSoat(fechaCompra);
+
+          // Actualizar propietario si cambió
+          if (cliente.id !== vehiculoExistente.cliente_id) {
+            datosVehiculoActualizados.cliente_id = cliente.id;
+            console.log(`🔄 Vehículo ${placa}: Nuevo propietario ${nombreCliente}`);
+          }
+
+          // Actualizar fechas si son más recientes
+          if (fechaCompra > vehiculoExistente.fecha_compra_soat) {
+            datosVehiculoActualizados.fecha_compra_soat = fechaCompra;
+            datosVehiculoActualizados.fecha_vencimiento_soat = fechaVencimiento;
+            console.log(`🔄 Vehículo ${placa}: Nueva fecha de compra SOAT ${fechaStr}`);
+          }
+
+          if (Object.keys(datosVehiculoActualizados).length > 0) {
+            await vehiculoExistente.update(datosVehiculoActualizados, { transaction });
+            vehiculosActualizados++;
+          } else {
+            registrosDuplicados.push({ cedula, placa });
+          }
         }
       }
     }
@@ -228,7 +301,9 @@ export async function importarCSV(rutaArchivo, empresaId, nombreArchivo) {
       lineasValidas: registros.length - lineasIgnoradas,
       lineasIgnoradas,
       clientesCreados,
+      clientesActualizados,
       vehiculosCreados,
+      vehiculosActualizados,
       datosRawCreados,
       duplicados: registrosDuplicados.length,
       registrosNuevos,
