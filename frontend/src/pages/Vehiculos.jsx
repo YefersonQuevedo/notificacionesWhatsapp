@@ -157,8 +157,14 @@ export default function Vehiculos() {
         await vehiculosAPI.actualizar(editingVehiculo.id, data);
         toast.success('Vehículo actualizado correctamente');
       } else {
-        await vehiculosAPI.crear(data);
-        toast.success('Vehículo creado correctamente');
+        const response = await vehiculosAPI.crear(data);
+
+        // Si el backend devuelve un mensaje especial (renovación)
+        if (response.data.mensaje) {
+          toast.success(response.data.mensaje);
+        } else {
+          toast.success('Vehículo creado correctamente');
+        }
       }
       setModalOpen(false);
       cargarVehiculos();

@@ -98,10 +98,47 @@ router.post('/', verificarEmpresa, async (req, res) => {
       });
     }
 
+    // Verificar si ya existe un vehículo con esta placa
+    const vehiculoExistente = await Vehiculo.findOne({
+      where: {
+        empresa_id: req.usuario.empresa_id,
+        placa: placa.toUpperCase()
+      }
+    });
+
+    if (vehiculoExistente) {
+      // Si existe, verificar si las fechas son más recientes
+      const fechaCompraExistente = new Date(vehiculoExistente.fecha_compra_soat);
+      const fechaCompraNueva = new Date(fecha_compra_soat);
+
+      if (fechaCompraNueva > fechaCompraExistente) {
+        // Actualizar con las fechas más recientes (renovación)
+        await vehiculoExistente.update({
+          fecha_compra_soat,
+          fecha_vencimiento_soat,
+          cliente_id: cliente_id || vehiculoExistente.cliente_id
+        });
+
+        // Crear nuevas notificaciones para las nuevas fechas
+        await crearNotificacionesVehiculo(vehiculoExistente.id);
+
+        return res.status(200).json({
+          ...vehiculoExistente.toJSON(),
+          mensaje: 'Vehículo actualizado con nueva fecha de renovación'
+        });
+      } else {
+        // Las fechas no son más recientes
+        return res.status(400).json({
+          error: 'Ya existe un vehículo con esa placa. Para actualizar, use fechas más recientes o edite el vehículo existente.'
+        });
+      }
+    }
+
+    // No existe, crear nuevo vehículo
     const vehiculo = await Vehiculo.create({
       empresa_id: req.usuario.empresa_id,
       cliente_id,
-      placa,
+      placa: placa.toUpperCase(),
       fecha_compra_soat,
       fecha_vencimiento_soat,
       activo: true
@@ -112,9 +149,6 @@ router.post('/', verificarEmpresa, async (req, res) => {
 
     res.status(201).json(vehiculo);
   } catch (error) {
-    if (error.name === 'SequelizeUniqueConstraintError') {
-      return res.status(400).json({ error: 'Ya existe un vehículo con esa placa' });
-    }
     console.error('Error creando vehículo:', error);
     res.status(500).json({ error: 'Error creando vehículo' });
   }
