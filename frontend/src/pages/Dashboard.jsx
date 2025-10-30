@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AlertCircle, Car, Users, Calendar, Send, CheckCircle, Clock } from 'lucide-react';
+import { AlertCircle, Car, Users, Calendar, Send, CheckCircle, Clock, XCircle } from 'lucide-react';
 import { vehiculosAPI, clientesAPI, whatsappAPI } from '../services/api';
 import { format, differenceInDays } from 'date-fns';
 import { es } from 'date-fns/locale';
@@ -9,7 +9,8 @@ export default function Dashboard() {
   const [stats, setStats] = useState({
     totalClientes: 0,
     totalVehiculos: 0,
-    proximosVencer: []
+    proximosVencer: [],
+    vencidos: []
   });
   const [loading, setLoading] = useState(true);
   const [diasFiltro, setDiasFiltro] = useState(30);
@@ -22,16 +23,18 @@ export default function Dashboard() {
   const cargarDatos = async () => {
     try {
       setLoading(true);
-      const [vehiculosRes, clientesRes, proximosRes] = await Promise.all([
+      const [vehiculosRes, clientesRes, proximosRes, vencidosRes] = await Promise.all([
         vehiculosAPI.listar({ limit: 1 }),
         clientesAPI.listar({ limit: 1 }),
-        vehiculosAPI.proximosVencer(diasFiltro)
+        vehiculosAPI.proximosVencer(diasFiltro),
+        vehiculosAPI.vencidos()
       ]);
 
       setStats({
         totalClientes: clientesRes.data.total,
         totalVehiculos: vehiculosRes.data.total,
-        proximosVencer: proximosRes.data.vehiculos || proximosRes.data
+        proximosVencer: proximosRes.data.vehiculos || proximosRes.data,
+        vencidos: vencidosRes.data.vehiculos || []
       });
     } catch (error) {
       toast.error('Error cargando datos del dashboard');
@@ -244,6 +247,86 @@ export default function Dashboard() {
           </div>
         )}
       </div>
+
+      {/* Tecnomecánicas Vencidas */}
+      {stats.vencidos.length > 0 && (
+        <div className="card">
+          <h2 className="text-xl font-bold flex items-center mb-4 text-red-700">
+            <XCircle className="mr-2 h-6 w-6" />
+            Tecnomecánicas Vencidas ({stats.vencidos.length})
+          </h2>
+          <p className="text-sm text-gray-600 mb-4">
+            Estos vehículos tienen la tecnomecánica vencida. Puede que la renovaron con otra empresa o no la renovaron.
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th className="table-header">Placa</th>
+                  <th className="table-header">Cliente</th>
+                  <th className="table-header">Fecha Vencimiento</th>
+                  <th className="table-header">Días Vencida</th>
+                  <th className="table-header">Última Notificación</th>
+                  <th className="table-header">Acciones</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {stats.vencidos.map((vehiculo) => {
+                  const diasVencida = Math.abs(differenceInDays(
+                    new Date(vehiculo.fecha_vencimiento_soat),
+                    new Date()
+                  ));
+
+                  const ultimaNotificacion = vehiculo.notificaciones?.[0];
+                  const tieneCliente = vehiculo.cliente && vehiculo.cliente.telefono;
+
+                  return (
+                    <tr key={vehiculo.id} className="hover:bg-gray-50 bg-red-50">
+                      <td className="table-cell font-medium text-red-900">{vehiculo.placa}</td>
+                      <td className="table-cell">{vehiculo.cliente?.nombre || 'Sin cliente'}</td>
+                      <td className="table-cell text-red-700">
+                        {format(new Date(vehiculo.fecha_vencimiento_soat), 'dd/MM/yyyy')}
+                      </td>
+                      <td className="table-cell">
+                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-red-200 text-red-900">
+                          Hace {diasVencida} días
+                        </span>
+                      </td>
+                      <td className="table-cell">
+                        {ultimaNotificacion?.fecha_envio ? (
+                          <span className="text-sm text-gray-600">
+                            {format(new Date(ultimaNotificacion.fecha_envio), 'dd/MM/yyyy HH:mm')}
+                          </span>
+                        ) : (
+                          <span className="text-gray-400 text-xs">Sin notificaciones</span>
+                        )}
+                      </td>
+                      <td className="table-cell">
+                        <button
+                          onClick={() => enviarRecordatorioManual(vehiculo.id)}
+                          disabled={!tieneCliente || enviandoRecordatorio === vehiculo.id}
+                          className={`flex items-center space-x-1 px-3 py-1 rounded text-sm ${
+                            !tieneCliente
+                              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                              : 'bg-orange-600 text-white hover:bg-orange-700'
+                          }`}
+                          title={!tieneCliente ? 'Cliente sin teléfono' : 'Enviar recordatorio de renovación'}
+                        >
+                          <Send className="h-4 w-4" />
+                          <span>
+                            {enviandoRecordatorio === vehiculo.id ? 'Enviando...' : 'Recordar'}
+                          </span>
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

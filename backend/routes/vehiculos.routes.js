@@ -323,4 +323,44 @@ router.get('/dashboard/proximos-vencer', verificarEmpresa, async (req, res) => {
   }
 });
 
+// Obtener vehículos con tecnomecánica vencida
+router.get('/dashboard/vencidos', verificarEmpresa, async (req, res) => {
+  try {
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+
+    const vehiculos = await Vehiculo.findAll({
+      where: {
+        empresa_id: req.usuario.empresa_id,
+        activo: true,
+        fecha_vencimiento_soat: {
+          [Op.lt]: hoy // Menor que hoy = vencido
+        }
+      },
+      include: [
+        {
+          model: Cliente,
+          as: 'cliente'
+        },
+        {
+          model: Notificacion,
+          as: 'notificaciones',
+          separate: true,
+          order: [['fecha_envio', 'DESC']],
+          limit: 1
+        }
+      ],
+      order: [['fecha_vencimiento_soat', 'DESC']] // Los más recientes primero
+    });
+
+    res.json({
+      vehiculos,
+      total: vehiculos.length
+    });
+  } catch (error) {
+    console.error('Error obteniendo vehículos próximos a vencer:', error);
+    res.status(500).json({ error: 'Error obteniendo vehículos' });
+  }
+});
+
 export default router;
