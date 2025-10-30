@@ -15,11 +15,55 @@ router.get('/', verificarEmpresa, async (req, res) => {
     const offset = (page - 1) * limit;
 
     const where = { empresa_id: req.usuario.empresa_id };
+    const includeWhere = {};
 
+    // Búsqueda inteligente: por placa, nombre de cliente o cédula
     if (search) {
-      where.placa = { [Op.like]: `%${search}%` };
+      // Buscar por placa O por datos del cliente
+      const { count, rows } = await Vehiculo.findAndCountAll({
+        where,
+        include: [
+          {
+            model: Cliente,
+            as: 'cliente',
+            where: {
+              [Op.or]: [
+                { nombre: { [Op.like]: `%${search}%` } },
+                { cedula: { [Op.like]: `%${search}%` } }
+              ]
+            },
+            required: false // LEFT JOIN para incluir vehículos sin cliente también
+          },
+          {
+            model: Notificacion,
+            as: 'notificaciones',
+            where: { enviado: false },
+            required: false
+          }
+        ],
+        where: {
+          ...where,
+          [Op.or]: [
+            { placa: { [Op.like]: `%${search}%` } },
+            { '$cliente.nombre$': { [Op.like]: `%${search}%` } },
+            { '$cliente.cedula$': { [Op.like]: `%${search}%` } }
+          ]
+        },
+        limit: parseInt(limit),
+        offset: parseInt(offset),
+        order: [['fecha_vencimiento_soat', 'ASC']],
+        subQuery: false
+      });
+
+      return res.json({
+        vehiculos: rows,
+        total: count,
+        page: parseInt(page),
+        pages: Math.ceil(count / limit)
+      });
     }
 
+    // Sin búsqueda, filtro simple
     if (cliente_id) {
       where.cliente_id = cliente_id;
     }
