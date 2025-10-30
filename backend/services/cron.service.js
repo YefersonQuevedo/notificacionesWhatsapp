@@ -54,7 +54,7 @@ class CronService {
 
       for (const notificacion of notificaciones) {
         try {
-          const mensaje = generarMensajeRecordatorio(notificacion);
+          const mensaje = await generarMensajeRecordatorio(notificacion);
           const telefono = notificacion.vehiculo.cliente.telefono;
 
           if (!telefono) {
@@ -82,7 +82,7 @@ class CronService {
           console.error(`✗ Error enviando notificación ${notificacion.id}:`, error.message);
           await marcarNotificacionEnviada(
             notificacion.id,
-            generarMensajeRecordatorio(notificacion),
+            await generarMensajeRecordatorio(notificacion),
             error.message
           );
         }

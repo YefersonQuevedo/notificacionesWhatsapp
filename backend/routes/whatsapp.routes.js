@@ -184,10 +184,11 @@ router.post('/enviar-recordatorio', verificarEmpresa, verificarRol('admin', 'ope
     // Generar mensaje (usando formato simulado de notificación)
     const notificacionSimulada = {
       vehiculo: vehiculo,
-      tipo_recordatorio: diasRestantes <= 7 ? '7_dias' : '30_dias'
+      tipo_recordatorio: diasRestantes <= 7 ? '7_dias' : '30_dias',
+      empresa_id: req.usuario.empresa_id
     };
 
-    const mensaje = generarMensajeRecordatorio(notificacionSimulada);
+    const mensaje = await generarMensajeRecordatorio(notificacionSimulada);
 
     // Enviar mensaje
     await whatsappService.enviarMensaje(vehiculo.cliente.telefono, mensaje);

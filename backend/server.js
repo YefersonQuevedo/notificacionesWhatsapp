@@ -18,6 +18,7 @@ import vehiculosRoutes from './routes/vehiculos.routes.js';
 import importRoutes from './routes/import.routes.js';
 import whatsappRoutes from './routes/whatsapp.routes.js';
 import datosBrutosRoutes from './routes/datosBrutos.routes.js';
+import mensajeTemplatesRoutes from './routes/mensajeTemplates.routes.js';
 
 // Importar servicios
 import whatsappService from './services/whatsapp.service.js';
@@ -47,6 +48,7 @@ app.use('/api/vehiculos', vehiculosRoutes);
 app.use('/api/import', importRoutes);
 app.use('/api/whatsapp', whatsappRoutes);
 app.use('/api/datos-brutos', datosBrutosRoutes);
+app.use('/api/mensaje-templates', mensajeTemplatesRoutes);
 
 // Ruta de salud
 app.get('/api/health', (req, res) => {

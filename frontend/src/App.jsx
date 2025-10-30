@@ -11,6 +11,7 @@ import Vehiculos from './pages/Vehiculos';
 import Importar from './pages/Importar';
 import WhatsApp from './pages/WhatsApp';
 import DatosBrutos from './pages/DatosBrutos';
+import ConfigMensajes from './pages/ConfigMensajes';
 
 // Layout
 import Layout from './components/Layout';
@@ -45,6 +46,7 @@ function App() {
             <Route path="importar" element={<Importar />} />
             <Route path="whatsapp" element={<WhatsApp />} />
             <Route path="datos-brutos" element={<DatosBrutos />} />
+            <Route path="config-mensajes" element={<ConfigMensajes />} />
           </Route>
         </Routes>
       </BrowserRouter>

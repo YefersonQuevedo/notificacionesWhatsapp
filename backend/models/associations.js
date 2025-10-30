@@ -4,6 +4,7 @@ import Cliente from './Cliente.js';
 import Vehiculo from './Vehiculo.js';
 import Notificacion from './Notificacion.js';
 import DatoBruto from './DatoBruto.js';
+import MensajeTemplate from './MensajeTemplate.js';
 
 // Empresa -> Usuarios
 Empresa.hasMany(Usuario, { foreignKey: 'empresa_id', as: 'usuarios' });
@@ -33,11 +34,16 @@ Notificacion.belongsTo(Empresa, { foreignKey: 'empresa_id', as: 'empresa' });
 Empresa.hasMany(DatoBruto, { foreignKey: 'empresa_id', as: 'datos_brutos' });
 DatoBruto.belongsTo(Empresa, { foreignKey: 'empresa_id', as: 'empresa' });
 
+// Empresa -> MensajeTemplates
+Empresa.hasMany(MensajeTemplate, { foreignKey: 'empresa_id', as: 'mensaje_templates' });
+MensajeTemplate.belongsTo(Empresa, { foreignKey: 'empresa_id', as: 'empresa' });
+
 export {
   Empresa,
   Usuario,
   Cliente,
   Vehiculo,
   Notificacion,
-  DatoBruto
+  DatoBruto,
+  MensajeTemplate
 };

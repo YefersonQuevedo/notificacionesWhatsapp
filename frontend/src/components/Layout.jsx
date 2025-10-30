@@ -5,6 +5,7 @@ import {
   Car,
   Upload,
   MessageCircle,
+  MessageSquare,
   Database,
   LogOut,
   Menu,
@@ -31,6 +32,7 @@ export default function Layout() {
     { name: 'Importar CSV', href: '/importar', icon: Upload },
     { name: 'Datos Brutos', href: '/datos-brutos', icon: Database },
     { name: 'WhatsApp', href: '/whatsapp', icon: MessageCircle },
+    { name: 'Configurar Mensajes', href: '/config-mensajes', icon: MessageSquare },
   ];
 
   const isActive = (path) => {

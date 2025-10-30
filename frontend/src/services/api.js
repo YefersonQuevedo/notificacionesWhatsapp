@@ -91,4 +91,10 @@ export const datosBrutosAPI = {
   estadisticas: (params) => api.get('/datos-brutos/estadisticas', { params })
 };
 
+// Mensaje Templates
+export const mensajeTemplatesAPI = {
+  listar: () => api.get('/mensaje-templates'),
+  actualizar: (tipo_recordatorio, template) => api.put(`/mensaje-templates/${tipo_recordatorio}`, { template })
+};
+
 export default api;
