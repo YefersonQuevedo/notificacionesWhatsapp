@@ -56,3 +56,12 @@ coverage/
 *.tmp
 *.temp
 .cache/
+
+# Docker
+backup/
+nginx/ssl/
+nul
+
+# WhatsApp Docker volumes
+backend/.wwebjs_auth/
+backend/.wwebjs_cache/

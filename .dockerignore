@@ -1,0 +1,51 @@
+# Node modules
+node_modules/
+**/node_modules/
+npm-debug.log
+
+# Archivos de desarrollo
+.git/
+.gitignore
+*.log
+*.md
+!README.md
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
+.env.docker
+
+# Archivos de configuración local
+.vscode/
+.idea/
+.DS_Store
+
+# Archivos temporales
+*.tmp
+*.temp
+.cache/
+dist/
+build/
+
+# Datos de WhatsApp (se crearán en el contenedor)
+backend/.wwebjs_auth/
+backend/.wwebjs_cache/
+
+# Backups
+backup/
+*.sql
+*.dump
+
+# Logs
+logs/
+*.log
+
+# Archivos de producción anteriores
+frontend/dist/
+
+# Scripts de Windows
+*.bat
+
+# Claude Code
+.claude/

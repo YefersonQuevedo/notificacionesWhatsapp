@@ -1,0 +1,106 @@
+version: '3.8'
+
+services:
+  # Base de datos MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: cardenoza-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
+      MYSQL_DATABASE: soat_reminders
+      MYSQL_USER: ${MYSQL_USER:-soat_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-soat_password}
+      TZ: America/Bogota
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backup:/backup
+    ports:
+      - "${MYSQL_PORT:-3306}:3306"
+    networks:
+      - cardenoza-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-rootpassword}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # Aplicación (Backend + Frontend)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cardenoza-app
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+
+      # Configuración de base de datos
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: soat_reminders
+      DB_USER: ${MYSQL_USER:-soat_user}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-soat_password}
+
+      # JWT Secret (CAMBIAR EN PRODUCCIÓN)
+      JWT_SECRET: ${JWT_SECRET:-tu_secreto_super_seguro_cambiar_en_produccion}
+
+      # Timezone
+      TZ: America/Bogota
+    volumes:
+      # Persistir datos de WhatsApp (sesión)
+      - whatsapp_data:/app/backend/.wwebjs_auth
+      - whatsapp_cache:/app/backend/.wwebjs_cache
+      # Persistir logs si es necesario
+      - ./logs:/app/logs
+    ports:
+      - "${APP_PORT:-3001}:3001"
+    networks:
+      - cardenoza-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Nginx como reverse proxy (opcional pero recomendado)
+  nginx:
+    image: nginx:alpine
+    container_name: cardenoza-nginx
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "${HTTP_PORT:-80}:80"
+      - "${HTTPS_PORT:-443}:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - nginx_logs:/var/log/nginx
+    networks:
+      - cardenoza-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+networks:
+  cardenoza-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local
+  whatsapp_data:
+    driver: local
+  whatsapp_cache:
+    driver: local
+  nginx_logs:
+    driver: local
