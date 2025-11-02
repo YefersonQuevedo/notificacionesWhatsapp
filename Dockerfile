@@ -3,19 +3,20 @@
 # Etapa 1: Construir el frontend
 FROM node:22-alpine AS frontend-builder
 
-WORKDIR /app/frontend
+WORKDIR /app
 
-# Copiar package.json y package-lock.json
-COPY frontend/package*.json ./
+# Copiar package.json raíz y del frontend
+COPY package*.json ./
+COPY frontend/package*.json ./frontend/
 
 # Instalar dependencias
-RUN npm ci --only=production
+RUN npm install && cd frontend && npm install
 
 # Copiar código fuente del frontend
-COPY frontend/ ./
+COPY frontend/ ./frontend/
 
 # Construir el frontend para producción
-RUN npm run build
+RUN cd frontend && npm run build
 
 # Etapa 2: Imagen de producción
 FROM node:22-alpine
@@ -25,15 +26,11 @@ RUN apk add --no-cache curl
 
 WORKDIR /app
 
-# Copiar package.json del backend
-COPY backend/package*.json ./backend/
+# Copiar package.json raíz
+COPY package*.json ./
 
-# Instalar dependencias de producción del backend
-WORKDIR /app/backend
-RUN npm ci --only=production
-
-# Volver al directorio raíz
-WORKDIR /app
+# Instalar dependencias de producción
+RUN npm install --omit=dev
 
 # Copiar código fuente del backend
 COPY backend/ ./backend/
